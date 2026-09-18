@@ -244,10 +244,13 @@
   const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
   const slice = (n) => (n && n > 0 ? HISTORY.slice(-n) : HISTORY);
 
+  // 이 페이지의 주인공은 괴리율이므로 굵게(2.8) + 맨 위에 그리고,
+  // 주가 두 선은 배경 맥락이라 얇게(1.3) 깔아 한눈에 구분되게 한다.
+  //   order 가 클수록 나중에 그려져 위로 올라온다.
   const SERIES = [
-    { key: "spread", name: "괴리율(%)",   axis: "y1", color: "--correction", pick: (d) => d.v },
-    { key: "common", name: "삼성전자",     axis: "y",  color: "--kospi",      pick: (d) => d.c },
-    { key: "pref",   name: "삼성전자우",   axis: "y",  color: "--kosdaq",     pick: (d) => d.p },
+    { key: "spread", name: "괴리율(%)", axis: "y1", color: "--correction", w: 2.8, order: 2, pick: (d) => d.v },
+    { key: "common", name: "삼성전자",   axis: "y",  color: "--kospi",     w: 1.3, order: 1, pick: (d) => d.c },
+    { key: "pref",   name: "삼성전자우", axis: "y",  color: "--kosdaq",    w: 1.3, order: 1, pick: (d) => d.p },
   ];
   const shown = { spread: true, common: true, pref: true };
   let mainChart, curRange = 250;
@@ -270,8 +273,13 @@
           data: data.map(s.pick),
           yAxisID: s.axis,
           borderColor: css(s.color),
-          borderWidth: 1.8,
+          borderWidth: s.w,
+          order: s.order,
           pointRadius: 0,
+          pointHoverRadius: 4,
+          pointHoverBackgroundColor: css(s.color),
+          pointHoverBorderColor: "#0b0f17",
+          pointHoverBorderWidth: 2,
           tension: 0.15,
           fill: false,
           hidden: !shown[s.key],
@@ -324,7 +332,7 @@
     box.innerHTML = SERIES.map((s) => `
       <button class="stog ${shown[s.key] ? "" : "off"}" type="button" data-k="${s.key}"
               aria-pressed="${shown[s.key]}">
-        <i style="background:${css(s.color)}"></i><span class="sname">${s.name}</span>
+        <i style="background:${css(s.color)};height:${s.key === "spread" ? 4 : 2}px"></i><span class="sname">${s.name}</span>
       </button>`).join("");
     box.querySelectorAll(".stog").forEach((btn) => {
       btn.addEventListener("click", () => {

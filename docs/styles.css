@@ -303,7 +303,7 @@ th{color:var(--muted);font-weight:600;font-size:12px}
   background:#0f1521;border:1px solid var(--line);border-radius:999px;padding:6px 13px;
   font-size:12.5px;font-weight:700;color:var(--txt);transition:opacity .15s,background .15s}
 .stog:hover{background:#161d2b}
-.stog i{width:11px;height:11px;border-radius:3px;flex:0 0 auto}
+.stog i{width:16px;border-radius:2px;flex:0 0 auto}
 .stog.off{opacity:.38}
 .stog.off i{background:var(--muted) !important}
 .stog.off .sname{text-decoration:line-through}
