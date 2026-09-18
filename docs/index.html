@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>삼성전자 우선주 괴리율 · 본주 대비 트래커</title>
+<meta name="description" content="삼성전자 본주(005930)와 우선주(005935)의 괴리율을 매 거래일 종가 기준으로 추적. 2005년부터의 일자별 추이와 3년·5년·전체 기간 대비 현재 위치를 함께 봅니다." />
+<link rel="canonical" href="https://andy-0401.github.io/kr-pref-spread/" />
+<meta name="author" content="CHO투자노트" />
+<meta name="keywords" content="삼성전자 우선주 괴리율, 삼성전자우 괴리율, 삼성전자 본주 우선주 차이, 우선주 괴리율 계산, 삼성전자1우, 005935, 우선주 디스카운트" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="이그전 트래커" />
+<meta property="og:locale" content="ko_KR" />
+<meta property="og:url" content="https://andy-0401.github.io/kr-pref-spread/" />
+<meta property="og:title" content="삼성전자 우선주 괴리율 · 본주 대비 트래커" />
+<meta property="og:description" content="삼성전자 본주 대비 우선주 괴리율 추적 — 일자별 추이 + 3년·5년·전체 기간 대비 현재 위치" />
+<meta property="og:image" content="https://andy-0401.github.io/kr-pref-spread/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="삼성전자 우선주 괴리율 트래커" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="삼성전자 우선주 괴리율 · 본주 대비 트래커" />
+<meta name="twitter:description" content="삼성전자 본주 대비 우선주 괴리율 추적 — 일자별 추이 + 기간별 위치" />
+<meta name="twitter:image" content="https://andy-0401.github.io/kr-pref-spread/og.png" />
+<link rel="preconnect" href="https://cdn.jsdelivr.net" />
+<link rel="stylesheet" href="./styles.css?v=20260918-1" />
+
+<!-- 사이트 설정 (채널 링크 / GA4 ID / 다른 지표 페이지 주소) -->
+<script src="./config.js"></script>
+<!-- Google Analytics 4 : config.gaMeasurementId 가 있을 때만 로드 -->
+<script>
+(function () {
+  var cfg = window.SITE_CONFIG || {};
+  var id = cfg.gaMeasurementId;
+  if (!id) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(id);
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { window.dataLayer.push(arguments); };
+  window.gtag("js", new Date());
+  window.gtag("config", id, { anonymize_ip: true });
+})();
+</script>
+
+<!-- 구조화 데이터: 검색엔진용 (앱 정보 + FAQ 리치결과) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "삼성전자 우선주 괴리율 트래커",
+      "url": "https://andy-0401.github.io/kr-pref-spread/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "ko-KR",
+      "isAccessibleForFree": true,
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+      "description": "삼성전자 본주(005930)와 우선주(005935)의 괴리율을 매 거래일 종가 기준으로 추적하고, 2005년부터의 자기 역사 대비 현재 위치를 3년·5년·전체 기간으로 함께 보여줍니다.",
+      "author": { "@type": "Person", "name": "CHO투자노트" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "삼성전자 우선주 괴리율은 어떻게 계산하나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "괴리율 = (본주 종가 − 우선주 종가) ÷ 본주 종가 × 100. 예를 들어 본주가 261,000원이고 우선주가 196,100원이면 괴리율은 약 24.9%입니다. 값이 클수록 우선주가 본주 대비 싸게 거래된다는 뜻입니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "삼성전자우는 왜 본주보다 싼가요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "우선주는 의결권이 없고 유통물량과 유동성이 본주보다 작기 때문에 통상 할인되어 거래됩니다. 대신 같은 배당금을 더 싼 가격에 받으므로 배당수익률은 본주보다 높습니다. 괴리율은 배당정책, 자사주 소각, 지배구조 이벤트, 수급에 따라 움직입니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "괴리율이 벌어지면 우선주가 저평가된 건가요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "그렇게 단정할 수 없습니다. 괴리율의 '정상 수준' 자체가 시대마다 이동해 왔습니다. 2005~2013년에는 30~45%가 평범했고, 2020~2022년에는 5~9%까지 좁혀졌습니다. 그래서 이 페이지는 고정 기준으로 저평가 여부를 판정하지 않고, 3년·5년·전체 기간 대비 현재 위치를 함께 보여줍니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "왜 3년·5년·전체 세 가지 기준을 같이 보여주나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "기준 기간을 하나만 고르면 그 선택이 곧 결론이 되기 때문입니다. 2026년 9월 18일 기준 괴리율 24.9%는 최근 3년 대비 약 76퍼센타일, 5년 대비 약 86퍼센타일, 전체 21년 대비 약 64퍼센타일로 읽힙니다. 같은 숫자가 기준에 따라 다르게 보이므로 셋을 모두 표시합니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "지금 삼성전자 괴리율은 얼마인가요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "이 페이지 상단에서 매 거래일 종가(15:40 KST) 기준 최신 괴리율과 본주·우선주 종가, 그리고 기간별 위치를 확인할 수 있습니다. 하단 표에서는 일자별 괴리율을 숫자로 볼 수 있습니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "본주와 우선주 중 무엇을 사야 하나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "이 페이지는 매수·매도 판단을 제공하지 않습니다. 괴리율이 역사적으로 어느 위치에 있는지 보여주는 조회·게이지 도구이며, 투자 판단의 책임은 본인에게 있습니다." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">
+      <span class="logo">⚖️</span>
+      <div>
+        <h1>삼성전자 우선주 괴리율</h1>
+        <p class="sub">본주(005930) 대비 우선주(005935) 할인율 트래커</p>
+      </div>
+    </div>
+    <div class="top-right">
+      <nav class="tabs" aria-label="지표 전환">
+        <a class="tab" id="mddTab" href="#" rel="noopener">MDD ↗</a>
+        <a class="tab" id="dispTab" href="#" rel="noopener">이격도 ↗</a>
+        <span class="tab on" aria-current="page">괴리율</span>
+      </nav>
+      <button class="share-btn" id="shareBtn" type="button" aria-label="공유 링크 복사/공유">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>
+        <span class="share-text">공유</span>
+      </button>
+      <a class="tg" id="tgLink" href="#" target="_blank" rel="noopener" hidden aria-label="텔레그램 채널 열기">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+        <span class="tg-text">채널</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- 기준 시각 -->
+  <div class="updated-row"><span class="ts" id="updatedAt">불러오는 중…</span></div>
+
+  <!-- 현재 괴리율 히어로 카드 -->
+  <section class="dual" id="heroCard"></section>
+
+  <!-- 기간별 위치 (3년·5년·전체 동시 표기) -->
+  <section class="card gauge-card">
+    <div class="card-head"><h2>지금 괴리율의 위치 <span class="hint">자기 역사 대비 백분위</span></h2></div>
+    <div class="pgauge" id="pgauge">
+      <div class="track"><i class="s-narrow"></i><i class="s-mid"></i><i class="s-semi"></i><i class="s-wide"></i></div>
+      <div class="gauge-ticks zone">
+        <span class="zt" style="left:12.5%">괴리 축소</span>
+        <span class="zt" style="left:37.5%">보통</span>
+        <span class="zt" style="left:62.5%">다소 확대</span>
+        <span class="zt" style="left:87.5%">괴리 확대</span>
+      </div>
+    </div>
+    <div class="win-grid" id="winGrid"></div>
+    <p class="chart-hint">※ 기준 기간을 하나만 고르면 그 선택이 곧 결론이 됩니다. 그래서 셋을 함께 표시합니다.</p>
+  </section>
+
+  <!-- 2단 차트: 주가 + 괴리율 -->
+  <section class="card">
+    <div class="card-head">
+      <h2>주가 · 괴리율 추이</h2>
+      <div class="range-btns" id="rangeBtns">
+        <button data-r="126">6M</button>
+        <button data-r="250" class="on">1Y</button>
+        <button data-r="750">3Y</button>
+        <button data-r="1250">5Y</button>
+        <button data-r="0">전체</button>
+      </div>
+    </div>
+    <div class="legend-hint legend-row">🔵 삼성전자(본주) · 🟣 삼성전자우(우선주) — 위 패널</div>
+    <div class="chart-box price"><canvas id="priceChart"></canvas></div>
+    <div class="legend-hint legend-row">🟠 괴리율 · ⚪ 선택 기간 중앙값 — 아래 패널</div>
+    <div class="chart-box spread"><canvas id="spreadChart"></canvas></div>
+    <p class="chart-hint">🔍 핀치·휠로 확대 · 드래그로 이동 · 더블탭으로 초기화 · <b>차트를 누르면 그날 수치</b>를 볼 수 있어요</p>
+    <div class="picked" id="picked" hidden></div>
+  </section>
+
+  <!-- 해석 설명 -->
+  <section class="card theory">
+    <h2>괴리율 해석법</h2>
+    <p><b>괴리율 = (본주 종가 − 우선주 종가) ÷ 본주 종가 × 100.</b> 값이 클수록 우선주가 본주 대비 싸게 거래된다는 뜻입니다. 우선주는 <b>의결권이 없고 유통물량·유동성이 작아</b> 통상 할인되며, 대신 같은 배당을 더 싼 값에 받으므로 배당수익률은 본주보다 높습니다.</p>
+    <p><b>고정 기준을 쓰지 않는 이유 —</b> 괴리율의 '정상 수준'은 시대마다 이동해 왔습니다.</p>
+    <ul class="theory-list">
+      <li><span class="tag wide">2005–2013</span> 평균 30~45% — 넓은 게 정상이던 시기</li>
+      <li><span class="tag semi">2014–2019</span> 평균 약 18% — 완만한 축소</li>
+      <li><span class="tag narrow">2020–2022</span> 5~9% — 배당 확대·개인 수급으로 사상 최저</li>
+      <li><span class="tag mid">2023–2026</span> 18~37% — 재확대</li>
+    </ul>
+    <p>그래서 "30% 넘으면 저평가" 같은 <b>고정 임계값은 쓰지 않습니다.</b> 대신 <b>3년·5년·전체</b> 세 기간 대비 백분위를 함께 표시해, 기준에 따라 해석이 어떻게 달라지는지를 숨기지 않고 보여줍니다.</p>
+    <p class="muted">※ 본 페이지는 <b>예측 도구가 아니라 위치를 보여주는 게이지</b>입니다. 괴리율이 벌어졌다고 반드시 좁혀지지 않으며, 검증 결과 6개월 이내 방향 예측력은 사실상 없었습니다. 정보 제공용이며 투자 권유가 아닙니다.</p>
+    <p><b>함께 보기:</b> <a id="mddLink2" href="#" rel="noopener">MDD(고점대비 낙폭)</a> · <a id="dispLink2" href="#" rel="noopener">코스피 50일 이격도</a></p>
+  </section>
+
+  <!-- FAQ -->
+  <section class="card faq">
+    <h2>삼성전자 우선주 괴리율 자주 묻는 질문</h2>
+    <style>
+      .faq details{border:1px solid var(--line);border-radius:12px;background:var(--card2);margin:10px 0;overflow:hidden}
+      .faq summary{cursor:pointer;padding:14px 16px;font-size:14.5px;font-weight:700;color:var(--txt);list-style:none;position:relative;padding-right:40px}
+      .faq summary::-webkit-details-marker{display:none}
+      .faq summary::after{content:"+";position:absolute;right:16px;top:13px;color:var(--muted);font-weight:700;font-size:18px}
+      .faq details[open] summary::after{content:"\2013"}
+      .faq .a{padding:2px 16px 15px;font-size:13.5px;color:var(--muted);line-height:1.65}
+      .faq .a a{color:var(--accent)}
+    </style>
+    <details>
+      <summary>삼성전자 우선주 괴리율은 어떻게 계산하나요?</summary>
+      <div class="a">괴리율 = (본주 종가 − 우선주 종가) ÷ 본주 종가 × 100. 값이 클수록 우선주가 본주 대비 싸게 거래된다는 뜻입니다.</div>
+    </details>
+    <details>
+      <summary>삼성전자우는 왜 본주보다 싼가요?</summary>
+      <div class="a">우선주는 의결권이 없고 유통물량·유동성이 본주보다 작아 통상 할인되어 거래됩니다. 대신 같은 배당금을 더 싼 가격에 받으므로 배당수익률은 본주보다 높습니다.</div>
+    </details>
+    <details>
+      <summary>괴리율이 벌어지면 우선주가 저평가된 건가요?</summary>
+      <div class="a">단정할 수 없습니다. 괴리율의 정상 수준 자체가 시대마다 이동했습니다(2005~2013년 30~45%가 평범, 2020~2022년 5~9%까지 축소). 그래서 이 페이지는 고정 기준으로 저평가를 판정하지 않고 기간별 위치만 보여줍니다.</div>
+    </details>
+    <details>
+      <summary>왜 3년·5년·전체 세 가지 기준을 같이 보여주나요?</summary>
+      <div class="a">기준 기간을 하나만 고르면 그 선택이 곧 결론이 되기 때문입니다. 같은 숫자가 3년·5년·21년 기준에서 각각 다른 백분위로 읽히므로, 고르지 않고 셋을 모두 표시합니다.</div>
+    </details>
+    <details>
+      <summary>데이터는 언제 갱신되나요?</summary>
+      <div class="a">매 거래일 종가 기준(15:40 KST)으로 하루 한 번 자동 갱신됩니다. 일봉은 2005년부터 수집하며 Yahoo Finance를 주 소스로, KRX(pykrx)를 폴백으로 사용합니다.</div>
+    </details>
+    <details>
+      <summary>본주와 우선주 중 무엇을 사야 하나요?</summary>
+      <div class="a">이 페이지는 매수·매도 판단을 제공하지 않습니다. 괴리율이 역사적으로 어느 위치에 있는지 보여주는 조회 도구이며, 투자 판단의 책임은 본인에게 있습니다.</div>
+    </details>
+  </section>
+
+  <!-- 일자별 기록 -->
+  <section class="card">
+    <div class="card-head"><h2>일자별 괴리율 <span class="hint">종가 기준</span></h2></div>
+    <div class="table-box">
+      <table id="histTable">
+        <thead><tr><th>날짜</th><th>삼성전자</th><th>삼성전자우</th><th>차액</th><th>괴리율</th><th>전일대비</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="more-row"><button class="more-btn" id="moreBtn" type="button">더보기</button></div>
+  </section>
+
+</main>
+
+<footer class="foot wrap">
+  <p>데이터: 무료 공개 소스(Yahoo Finance · KRX/pykrx) · 갱신: 매 거래일 15:40 KST 종가</p>
+  <p class="muted">© CHO투자노트 · 정보 제공용이며 투자 권유가 아닙니다. 투자 판단의 책임은 본인에게 있습니다.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8/hammer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js"></script>
+<script src="./app.js?v=20260918-1" defer></script>
+</body>
+</html>

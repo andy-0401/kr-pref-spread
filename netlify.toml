@@ -1,0 +1,7 @@
+# 이 레포는 GitHub Pages 가 서빙한다(빌드·대역폭 무료).
+# netlify.toml 은 혹시 Netlify 에 연결될 경우를 대비한 최소 설정만 둔다.
+#   ※ 단축링크(/kospipref)와 정시 트리거(예약함수)는 kospi-ma-disparity 레포가 담당한다.
+[build]
+  publish = "docs"
+  command = ""
+  ignore = "git diff --quiet HEAD^ HEAD -- netlify.toml"

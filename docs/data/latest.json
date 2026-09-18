@@ -1,0 +1,87 @@
+{
+  "date": "2026-09-18",
+  "time": "15:40",
+  "type": "close",
+  "note": "장 마감 종가 기준 확정값입니다.",
+  "updated_at": "2026-09-18T15:40:00+09:00",
+  "common": {
+    "name": "삼성전자",
+    "code": "005930",
+    "close": 261000,
+    "change": 8500,
+    "change_pct": 3.37
+  },
+  "pref": {
+    "name": "삼성전자우",
+    "code": "005935",
+    "close": 196100,
+    "change": 2800,
+    "change_pct": 1.45
+  },
+  "spread": {
+    "value": 24.87,
+    "prev": 23.45,
+    "diff": 1.42,
+    "gap_krw": 64900
+  },
+  "percentile": {
+    "y3": {
+      "label": "3년",
+      "pct": 75.7,
+      "mean": 21.4,
+      "median": 19.1,
+      "min": 13.3,
+      "max": 37.5,
+      "z": 0.61,
+      "n": 728,
+      "start": "2023-09-19"
+    },
+    "y5": {
+      "label": "5년",
+      "pct": 85.5,
+      "mean": 17.2,
+      "median": 17.2,
+      "min": 4.9,
+      "max": 37.5,
+      "z": 1.08,
+      "n": 1219,
+      "start": "2021-09-23"
+    },
+    "all": {
+      "label": "전체",
+      "pct": 64.5,
+      "mean": 23.3,
+      "median": 21.4,
+      "min": 4.8,
+      "max": 45.8,
+      "z": 0.17,
+      "n": 5181,
+      "start": "2005-09-29"
+    }
+  },
+  "zone": "wide",
+  "zone_label": "괴리 확대",
+  "zone_basis": "y5",
+  "zones": [
+    {
+      "floor": 80.0,
+      "key": "wide",
+      "label": "괴리 확대"
+    },
+    {
+      "floor": 55.0,
+      "key": "semi",
+      "label": "다소 확대"
+    },
+    {
+      "floor": 25.0,
+      "key": "mid",
+      "label": "보통"
+    },
+    {
+      "floor": 0.0,
+      "key": "narrow",
+      "label": "괴리 축소"
+    }
+  ]
+}

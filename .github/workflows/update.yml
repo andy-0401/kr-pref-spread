@@ -1,0 +1,68 @@
+name: 삼성전자 우선주 괴리율 갱신
+
+on:
+  schedule:
+    # GitHub Actions cron 은 UTC 기준. KST = UTC+9. 종가(15:40 KST) 1회만 갱신한다.
+    # ※ 무료 티어 cron 은 정시 보장이 안 되므로 여기 크론은 '지연 백업'이고,
+    #   정시성은 kospi-ma 레포의 Netlify 예약함수가 repository_dispatch 로 깨워서 담당한다.
+    #   파이프라인이 멱등(동일 종가면 커밋 없음)이라 중복 실행은 안전하다.
+    - cron: "42 6 * * 1-5"   # 15:42 KST — 종가 1차
+    - cron: "57 6 * * 1-5"   # 15:57 KST — 종가 백업
+    - cron: "12 7 * * 1-5"   # 16:12 KST — 종가 백업2
+  repository_dispatch:
+    types: [close]
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "새 데이터가 없어도 강제 기록"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pref-spread-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install deps
+        run: pip install -r scripts/requirements.txt
+
+      - name: Run update
+        run: |
+          ARGS="--type close"
+          if [ "${{ inputs.force }}" = "true" ]; then ARGS="$ARGS --force"; fi
+          python scripts/run_update.py $ARGS
+
+      - name: Commit data
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data/history.json docs/data/latest.json
+          if git diff --staged --quiet; then
+            echo "변경 없음 — 커밋 생략"
+          else
+            # 데이터가 실제로 갱신된 경우에만 sitemap lastmod 를 오늘(UTC)로 → 검색엔진 신선도 신호
+            if [ -f docs/sitemap.xml ]; then
+              sed -i "s#<lastmod>[0-9-]*</lastmod>#<lastmod>$(date -u +%Y-%m-%d)</lastmod>#g" docs/sitemap.xml
+              git add docs/sitemap.xml
+            fi
+            git commit -m "data: 괴리율 종가 갱신 ($(date -u +%Y-%m-%dT%H:%MZ))"
+            for i in 1 2 3 4; do
+              git push origin HEAD:${{ github.ref_name }} && break
+              echo "push 재시도 $i..."; sleep $((2**i))
+            done
+          fi
