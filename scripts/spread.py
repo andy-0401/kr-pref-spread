@@ -82,6 +82,7 @@ class WindowStat:
     z: float
     n: int               # 표본 거래일 수
     start: str           # 창 시작일
+    rarer: int           # 지금보다 '더 벌어졌던' 날의 비율(%) = 화면의 "100일 중 N일"
 
 
 @dataclass
@@ -217,13 +218,16 @@ def compute_windows(points: list[DailyPoint]) -> list[WindowStat]:
         if not vals:
             continue
         mean, sd, median = _stats(vals)
+        # "100일 중 N일"은 반올림된 백분위에서 빼지 않고 원자료에서 직접 센다.
+        # (백분위를 소수 1자리로 반올림한 뒤 100에서 빼면 35.5 같은 경계값이 화면마다 갈린다)
+        rarer = round(sum(1 for v in vals if v > cur) / len(vals) * 100)
         out.append(WindowStat(
             key=key, label=label,
             pct=round(_percentile_of(vals, cur), 1),
             mean=round(mean, 1), median=round(median, 1),
             min=round(min(vals), 1), max=round(max(vals), 1),
             z=round((cur - mean) / sd, 2) if sd else 0.0,
-            n=len(vals), start=sub[0].date,
+            n=len(vals), start=sub[0].date, rarer=rarer,
         ))
     return out
 
@@ -269,7 +273,8 @@ def build_snapshot(points: list[DailyPoint], run_type: str = "close") -> Snapsho
                 "prev": prev.spread if prev else None,
                 "diff": round(last.spread - prev.spread, 2) if prev else None,
                 "gap_krw": round(last.common - last.pref)},
-        percentile={w.key: {"label": w.label, "pct": w.pct, "mean": w.mean, "median": w.median,
+        percentile={w.key: {"label": w.label, "pct": w.pct, "rarer": w.rarer,
+                            "mean": w.mean, "median": w.median,
                             "min": w.min, "max": w.max, "z": w.z, "n": w.n, "start": w.start}
                     for w in wins},
         zone=zone, zone_label=zone_label, zone_basis=basis.key,

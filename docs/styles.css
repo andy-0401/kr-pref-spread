@@ -260,39 +260,57 @@ th{color:var(--muted);font-weight:600;font-size:12px}
 .dz-narrow{color:var(--cooldown)} .dz-mid{color:var(--normal)}
 .dz-semi{color:var(--caution)}    .dz-wide{color:var(--overheat)}
 
-/* 백분위 게이지 — 마커 3개(3년·5년·전체)를 3단으로 쌓아 서로 안 가리게 */
-.pgauge{position:relative;padding-top:82px}
-.pgauge .track{position:relative;display:flex;height:30px;border-radius:8px;overflow:hidden;border:1px solid var(--line)}
-.pgauge .track i{flex:0 0 25%;height:100%}
-.pgauge .s-narrow{background:var(--cooldown)} .pgauge .s-mid{background:var(--normal)}
-.pgauge .s-semi{background:var(--caution)}    .pgauge .s-wide{background:var(--overheat)}
-.pgauge .pin{position:absolute;transform:translateX(-50%);z-index:3;pointer-events:none;transition:left .5s ease}
-.pgauge .pin b{display:block;font-size:11.5px;font-weight:800;background:var(--txt);color:var(--bg);
-  padding:3px 9px;border-radius:999px;white-space:nowrap;line-height:1.35}
-.pgauge .pin s{display:block;width:2px;background:var(--txt);margin:0 auto;text-decoration:none;opacity:.55}
-.pgauge .pin.r0{top:0}    .pgauge .pin.r0 s{height:61px}
-.pgauge .pin.r1{top:27px} .pgauge .pin.r1 s{height:34px}
-.pgauge .pin.r2{top:54px} .pgauge .pin.r2 s{height:7px}
-.pgauge .pin.on b{background:var(--accent);color:#fff}
+/* 지금 괴리율의 위치 — 통계 용어 없이 읽히도록 */
+.pos-lead{font-size:26px;font-weight:800;letter-spacing:-.5px;margin:2px 0 8px}
+.pos-sub{font-size:13.5px;color:var(--muted);line-height:1.7;margin:0}
+.pos-sub b{color:var(--txt)}
+.pos-q{font-size:12.5px;color:var(--muted);font-weight:700;margin:20px 0 6px}
+.frow{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.frow:last-of-type{border-bottom:none}
+.frow .fk{font-size:13px;color:var(--muted);width:78px;flex:0 0 auto;font-weight:700}
+.frow .fb{flex:1;height:9px;background:#161d2b;border-radius:999px;overflow:hidden}
+.frow .fb i{display:block;height:100%;border-radius:999px;transition:width .5s ease}
+.frow .fb .z-narrow{background:var(--cooldown)} .frow .fb .z-mid{background:var(--normal)}
+.frow .fb .z-semi{background:var(--caution)}    .frow .fb .z-wide{background:var(--overheat)}
+.frow .fv{font-size:13px;font-weight:700;width:120px;text-align:right;flex:0 0 auto;color:var(--muted)}
+.frow .fv b{font-weight:800}
+.pos-note{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);
+  font-size:12.5px;color:var(--muted);line-height:1.65}
+.pos-note b{color:var(--txt)} .pos-note b.now{color:var(--caution)}
 
-/* 기간별 요약 3열 */
-.pgauge .gauge-ticks.zone .zt{white-space:nowrap}
-/* 양 끝 라벨은 카드 밖으로 넘치지 않게 안쪽 정렬로 고정 */
-.pgauge .gauge-ticks.zone .zt:first-child{left:0 !important;transform:none}
-.pgauge .gauge-ticks.zone .zt:last-child{left:auto !important;right:0;transform:none}
+/* 접이식: 왜 기간마다 다른가 (기존 FAQ details 톤을 그대로 따름) */
+.why{border:1px solid var(--line);border-radius:12px;background:var(--card2);margin:18px 0 0;overflow:hidden}
+.why summary{cursor:pointer;padding:13px 15px;font-size:13.5px;font-weight:700;color:var(--txt);
+  list-style:none;position:relative;padding-right:40px}
+.why summary::-webkit-details-marker{display:none}
+.why summary::after{content:"+";position:absolute;right:16px;top:11px;color:var(--muted);font-weight:700;font-size:18px}
+.why[open] summary::after{content:"\2013"}
+.why .a{padding:4px 15px 15px}
+.rax-head{display:flex;align-items:center;gap:10px}
+.rax{position:relative;flex:1;height:16px}
+.rax span{position:absolute;transform:translateX(-50%);font-size:10.5px;color:#5c6878}
+.rrow{display:flex;align-items:center;gap:10px;margin:10px 0}
+.rrow .rk{font-size:12.5px;color:var(--muted);width:64px;flex:0 0 auto;font-weight:700}
+.rwrap{position:relative;flex:1;height:26px;display:block}
+.rbar{position:absolute;top:6px;height:14px;background:#2b3a52;border-radius:4px}
+.rmed{position:absolute;top:2px;width:2px;height:22px;background:var(--muted)}
+.rnow{position:absolute;top:0;width:2px;height:26px;background:var(--caution)}
+.rlab{font-size:11px;color:var(--muted);width:104px;text-align:right;flex:0 0 auto}
 
-.win-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
-.win{background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:11px 12px}
-.win .wk{font-size:11.5px;color:var(--muted);font-weight:700}
-.win .wv{font-size:21px;font-weight:800;letter-spacing:-.5px;margin:3px 0 1px}
-.win .ws{font-size:11px;color:var(--muted);line-height:1.5}
-.win.basis{border-color:var(--accent)}
-.win.basis .wk{color:var(--accent)}
+/* 시리즈 토글 범례 — 눌러서 괴리율만 / 주가만 / 둘 다 */
+.series-toggle{display:flex;flex-wrap:wrap;gap:8px;margin:2px 0 10px}
+.stog{display:inline-flex;align-items:center;gap:7px;cursor:pointer;user-select:none;
+  background:#0f1521;border:1px solid var(--line);border-radius:999px;padding:6px 13px;
+  font-size:12.5px;font-weight:700;color:var(--txt);transition:opacity .15s,background .15s}
+.stog:hover{background:#161d2b}
+.stog i{width:11px;height:11px;border-radius:3px;flex:0 0 auto}
+.stog.off{opacity:.38}
+.stog.off i{background:var(--muted) !important}
+.stog.off .sname{text-decoration:line-through}
 
 /* 2단 차트: 위(주가) 아래(괴리율) */
-.chart-box.price{height:220px}
-.chart-box.spread{height:180px;margin-top:6px}
-@media(max-width:640px){.chart-box.price{height:190px}.chart-box.spread{height:160px}}
+.chart-box{height:340px}
+@media(max-width:640px){.chart-box{height:270px}}
 
 /* 차트 클릭 시 나타나는 '선택한 날' 요약 */
 .picked[hidden]{display:none}
@@ -317,8 +335,10 @@ th{color:var(--muted);font-weight:600;font-size:12px}
 #histTable .c-up{color:var(--up)} #histTable .c-down{color:var(--down)}
 
 @media(max-width:600px){
-  .win-grid{grid-template-columns:1fr;gap:8px}
-  .win{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
-  .win .wv{font-size:18px;margin:0}
-  .win .ws{flex:1 1 100%}
+  .pos-lead{font-size:22px}
+  .frow{gap:9px}
+  .frow .fk{width:64px;font-size:12px}
+  .frow .fv{width:100px;font-size:12px}
+  .rrow .rk{width:52px;font-size:11.5px}
+  .rlab{width:86px;font-size:10.5px}
 }

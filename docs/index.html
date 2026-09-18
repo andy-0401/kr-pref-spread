@@ -136,20 +136,14 @@
   <!-- 현재 괴리율 히어로 카드 -->
   <section class="dual" id="heroCard"></section>
 
-  <!-- 기간별 위치 (3년·5년·전체 동시 표기) -->
-  <section class="card gauge-card">
-    <div class="card-head"><h2>지금 괴리율의 위치 <span class="hint">자기 역사 대비 백분위</span></h2></div>
-    <div class="pgauge" id="pgauge">
-      <div class="track"><i class="s-narrow"></i><i class="s-mid"></i><i class="s-semi"></i><i class="s-wide"></i></div>
-      <div class="gauge-ticks zone">
-        <span class="zt" style="left:12.5%">괴리 축소</span>
-        <span class="zt" style="left:37.5%">보통</span>
-        <span class="zt" style="left:62.5%">다소 확대</span>
-        <span class="zt" style="left:87.5%">괴리 확대</span>
-      </div>
-    </div>
-    <div class="win-grid" id="winGrid"></div>
-    <p class="chart-hint">※ 기준 기간을 하나만 고르면 그 선택이 곧 결론이 됩니다. 그래서 셋을 함께 표시합니다.</p>
+  <!-- 지금 괴리율의 위치 — 통계 용어 없이 "100일 중 며칠"로 -->
+  <section class="card pos-card">
+    <div class="card-head"><h2>지금 괴리율의 위치</h2></div>
+    <div id="posBox"><p class="muted">불러오는 중…</p></div>
+    <details class="why">
+      <summary>왜 기간마다 숫자가 다른가요?</summary>
+      <div class="a" id="whyBox"></div>
+    </details>
   </section>
 
   <!-- 2단 차트: 주가 + 괴리율 -->
@@ -164,11 +158,9 @@
         <button data-r="0">전체</button>
       </div>
     </div>
-    <div class="legend-hint legend-row">🔵 삼성전자(본주) · 🟣 삼성전자우(우선주) — 위 패널</div>
-    <div class="chart-box price"><canvas id="priceChart"></canvas></div>
-    <div class="legend-hint legend-row">🟠 괴리율 · ⚪ 선택 기간 중앙값 — 아래 패널</div>
-    <div class="chart-box spread"><canvas id="spreadChart"></canvas></div>
-    <p class="chart-hint">🔍 핀치·휠로 확대 · 드래그로 이동 · 더블탭으로 초기화 · <b>차트를 누르면 그날 수치</b>를 볼 수 있어요</p>
+    <div class="series-toggle" id="seriesToggle"></div>
+    <div class="chart-box"><canvas id="mainChart"></canvas></div>
+    <p class="chart-hint">🔍 위 항목을 눌러 <b>켜고 끌 수 있어요</b>(괴리율만 · 주가만 · 둘 다) · 핀치·휠로 확대 · 더블탭으로 초기화 · <b>차트를 누르면 그날 수치</b> 표시</p>
     <div class="picked" id="picked" hidden></div>
   </section>
 
