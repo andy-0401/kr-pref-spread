@@ -14,50 +14,50 @@
   "pref": {
     "name": "삼성전자우",
     "code": "005935",
-    "close": 161100,
-    "change": -10600,
-    "change_pct": -6.17
+    "close": 160400,
+    "change": -11300,
+    "change_pct": -6.58
   },
   "spread": {
-    "value": 20.05,
+    "value": 20.4,
     "prev": 21.24,
-    "diff": -1.19,
-    "gap_krw": 40400
+    "diff": -0.84,
+    "gap_krw": 41100
   },
   "percentile": {
     "y3": {
       "label": "3년",
-      "pct": 54.3,
-      "rarer": 46,
+      "pct": 57.1,
+      "rarer": 43,
       "mean": 21.5,
       "median": 19.2,
       "min": 13.3,
       "max": 37.5,
-      "z": -0.26,
+      "z": -0.2,
       "n": 729,
       "start": "2023-11-06"
     },
     "y5": {
       "label": "5년",
-      "pct": 71.6,
-      "rarer": 28,
+      "pct": 73.7,
+      "rarer": 26,
       "mean": 17.6,
       "median": 17.4,
       "min": 5.6,
       "max": 37.5,
-      "z": 0.35,
+      "z": 0.4,
       "n": 1219,
       "start": "2021-11-08"
     },
     "all": {
       "label": "전체",
-      "pct": 42.9,
-      "rarer": 57,
+      "pct": 45.2,
+      "rarer": 55,
       "mean": 23.3,
       "median": 21.5,
       "min": 4.8,
       "max": 45.8,
-      "z": -0.35,
+      "z": -0.31,
       "n": 5211,
       "start": "2005-09-29"
     }
