@@ -1,64 +1,64 @@
 {
-  "date": "2026-11-04",
+  "date": "2026-11-05",
   "time": "15:40",
   "type": "close",
   "note": "장 마감 종가 기준 확정값입니다.",
-  "updated_at": "2026-11-04T15:40:00+09:00",
+  "updated_at": "2026-11-05T15:40:00+09:00",
   "common": {
     "name": "삼성전자",
     "code": "005930",
-    "close": 218000,
-    "change": -1500,
-    "change_pct": -0.68
+    "close": 201500,
+    "change": -16500,
+    "change_pct": -7.57
   },
   "pref": {
     "name": "삼성전자우",
     "code": "005935",
-    "close": 171700,
-    "change": 100,
-    "change_pct": 0.06
+    "close": 161100,
+    "change": -10600,
+    "change_pct": -6.17
   },
   "spread": {
-    "value": 21.24,
-    "prev": 21.82,
-    "diff": -0.58,
-    "gap_krw": 46300
+    "value": 20.05,
+    "prev": 21.24,
+    "diff": -1.19,
+    "gap_krw": 40400
   },
   "percentile": {
     "y3": {
       "label": "3년",
-      "pct": 61.7,
-      "rarer": 38,
+      "pct": 54.3,
+      "rarer": 46,
       "mean": 21.5,
       "median": 19.2,
       "min": 13.3,
       "max": 37.5,
-      "z": -0.05,
-      "n": 728,
+      "z": -0.26,
+      "n": 729,
       "start": "2023-11-06"
     },
     "y5": {
       "label": "5년",
-      "pct": 77.0,
-      "rarer": 23,
-      "mean": 17.5,
+      "pct": 71.6,
+      "rarer": 28,
+      "mean": 17.6,
       "median": 17.4,
       "min": 5.6,
       "max": 37.5,
-      "z": 0.52,
+      "z": 0.35,
       "n": 1219,
-      "start": "2021-11-05"
+      "start": "2021-11-08"
     },
     "all": {
       "label": "전체",
-      "pct": 49.2,
-      "rarer": 51,
+      "pct": 42.9,
+      "rarer": 57,
       "mean": 23.3,
       "median": 21.5,
       "min": 4.8,
       "max": 45.8,
-      "z": -0.22,
-      "n": 5210,
+      "z": -0.35,
+      "n": 5211,
       "start": "2005-09-29"
     }
   },
