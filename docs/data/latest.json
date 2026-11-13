@@ -7,57 +7,57 @@
   "common": {
     "name": "삼성전자",
     "code": "005930",
-    "close": 207000,
-    "change": -1000,
-    "change_pct": -0.48
+    "close": 206000,
+    "change": -2000,
+    "change_pct": -0.96
   },
   "pref": {
     "name": "삼성전자우",
     "code": "005935",
-    "close": 170300,
-    "change": 2000,
-    "change_pct": 1.19
+    "close": 170500,
+    "change": 2200,
+    "change_pct": 1.31
   },
   "spread": {
-    "value": 17.73,
+    "value": 17.23,
     "prev": 19.09,
-    "diff": -1.36,
-    "gap_krw": 36700
+    "diff": -1.86,
+    "gap_krw": 35500
   },
   "percentile": {
     "y3": {
       "label": "3년",
-      "pct": 29.5,
-      "rarer": 71,
+      "pct": 22.4,
+      "rarer": 78,
       "mean": 21.5,
       "median": 19.3,
       "min": 13.3,
       "max": 37.5,
-      "z": -0.67,
+      "z": -0.75,
       "n": 729,
       "start": "2023-11-14"
     },
     "y5": {
       "label": "5년",
-      "pct": 52.5,
-      "rarer": 48,
+      "pct": 47.4,
+      "rarer": 53,
       "mean": 17.6,
       "median": 17.5,
       "min": 5.6,
       "max": 37.5,
-      "z": 0.02,
+      "z": -0.05,
       "n": 1220,
       "start": "2021-11-15"
     },
     "all": {
       "label": "전체",
-      "pct": 27.0,
-      "rarer": 73,
+      "pct": 23.9,
+      "rarer": 76,
       "mean": 23.3,
       "median": 21.4,
       "min": 4.8,
       "max": 45.8,
-      "z": -0.6,
+      "z": -0.65,
       "n": 5217,
       "start": "2005-09-29"
     }
